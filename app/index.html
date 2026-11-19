@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Sunset Studio — GTA-style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>VICE SUNSET <span>STUDIO</span></h1>
+    <p>Turn your photos into a multi-panel poster cover, GTA style.</p>
+  </div>
+  <button id="surprise" type="button" class="ghost">Surprise me</button>
+</header>
+
+<main class="studio">
+  <aside class="panel" aria-label="Cover controls">
+    <section>
+      <h2>1 · Photos</h2>
+      <p class="hint">Add up to three photos from your machine, or try a sample. Photos never leave your browser.</p>
+      <div class="slots" id="slots"></div>
+      <div class="samples" id="samples">
+        <span>Samples:</span>
+        <button type="button" data-sample="boulevard">Boulevard</button>
+        <button type="button" data-sample="pier">Pier</button>
+        <button type="button" data-sample="neon">Neon street</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>2 · Panel layout</h2>
+      <div class="layouts" id="layouts"></div>
+    </section>
+
+    <section>
+      <h2>3 · Colour grade</h2>
+      <div class="grades" id="grades"></div>
+    </section>
+
+    <section>
+      <h2>4 · Caption</h2>
+      <label>Title
+        <input id="title" type="text" maxlength="28" value="SUNSET HEIST" autocomplete="off">
+      </label>
+      <label>Tagline
+        <input id="tagline" type="text" maxlength="40" value="VICE CITY · 2026" autocomplete="off">
+      </label>
+      <label>Title size
+        <input id="titleScale" type="range" min="70" max="130" value="100">
+      </label>
+    </section>
+
+    <section>
+      <h2>5 · Selected panel</h2>
+      <p class="hint">Click a panel in the preview, then drag it to move the photo and scroll to zoom.</p>
+      <label>Photo in this panel
+        <select id="panelPhoto"></select>
+      </label>
+      <label>Zoom
+        <input id="panelZoom" type="range" min="100" max="260" value="100">
+      </label>
+      <div class="row">
+        <button id="panelReset" type="button">Reset panel</button>
+        <button id="panelFill" type="button">Fill all panels</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>6 · Export</h2>
+      <div class="sizes" id="sizes"></div>
+      <button id="export" type="button" class="primary">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+  </aside>
+
+  <section class="stage" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+    <p class="stage-hint">Live preview — click a panel to select it, drag to reposition its photo.</p>
+  </section>
+</main>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
